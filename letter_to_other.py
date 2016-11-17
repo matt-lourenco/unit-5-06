@@ -3,25 +3,11 @@
 # This is a program that lets you input a letter then tells you the unicode number for it and the hexadecimal
 
 def convert_to_hexadecimal(input):
-    first_number = input // 4096
-    second_number = (input % 4096) // 256
-    third_number = ((input % 4096) % 256) // 16
-    fourth_number = ((input % 4096) % 256) % 16
+    hexadecimal = {'A':'41', 'B':'42', 'C':'43', 'D':'44', 'E':'45', 'F':'46', 'G':'47', 'H':'48', 'I':'49', 'J':'4A', 'K':'4B', 'L':'4C', 'M':'4D', 'N':'4E', 'O':'4F', 'P':'50', 'Q':'51', 'R':'52', 'S':'53', 'T':'54', 'U':'55', 'V':'56', 'W':'57', 'X':'58', 'Y':'59', 'Z':'5A', 'a':'61', 'b':'62', 'c':'63', 'd':'64', 'e':'65', 'f':'66', 'g':'67', 'h':'68', 'i':'69', 'j':'6A', 'k':'6B', 'l':'6C', 'm':'6D', 'n':'6E', 'o':'6F', 'p':'70', 'q':'71', 'r':'72', 's':'73', 't':'74', 'u':'75', 'v':'76', 'w':'77', 'x':'78', 'y':'79', 'z':'7A'}
     
-    if first_number > 9:
-        first_number = str(unichr(first_number + 55))
-    if second_number > 9:
-        second_number = str(unichr(second_number + 55))
-    if third_number > 9:
-        third_number = str(unichr(third_number + 55))
-    if fourth_number > 9:
-        fourth_number = str(unichr(fourth_number + 55))
-    
-    print("The hexadecimal equivalent for the first symbol in " + '"' + str(user_input) + '"' + " is: " + str(first_number) + str(second_number) + str(third_number) + str(fourth_number))
+    return hexadecimal[input]
 
-user_input = raw_input('Enter a symbol. (If more than one symbol is entered the first will be used) -> ')
-count = 0
-while not unichr(count) == user_input[0]:
-    count = count + 1
-print("The unicode equivalent for the first symbol in " + '"' + str(user_input) + '"' + " is: " + str(count))
-convert_to_hexadecimal(count)
+user_input = raw_input('Enter a string of any character. -> ')
+for letter in user_input:
+    hexadecimal_number = convert_to_hexadecimal(letter)
+    print(str(letter) + ' in hexadecimal is -> ' + str(hexadecimal_number))
